@@ -24,3 +24,6 @@ https://www.cafelouvre.cz/en/History
 https://prague.eu/en/objevujte/john-lennon-wall-zed-johna-lennona/
 https://prague.eu/en/objevujte/charles-bridge-karluv-most/
 https://www.jewishmuseum.cz/en/info/visit/
+
+
+Startskärmen använder en optimerad serietidningsbild (`assets/jocke-start.jpg`) som bakgrund. Den riktiga knappen "BÖRJA QUIZEN" ligger ovanpå bilden och öppnar quizdelen.

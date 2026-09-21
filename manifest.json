@@ -1,10 +1,10 @@
 {
-  "name":"Prague Challenge",
-  "short_name":"Prague Quiz",
+  "name":"Jocke 60 Prague Challenge 24 - 27 Sep 2026",
+  "short_name":"Jocke 60 Prague",
   "start_url":"./",
   "display":"standalone",
-  "background_color":"#f5f7fb",
-  "theme_color":"#111827",
+  "background_color":"#091a33",
+  "theme_color":"#091a33",
   "orientation":"portrait",
   "icons":[
     {"src":"icons/icon-180.png","sizes":"180x180","type":"image/png","purpose":"any"},
