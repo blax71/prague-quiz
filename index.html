@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Prague Quiz">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Prague Quiz</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">🇨🇿 PRAGUE CHALLENGE</div>
+        <h1 id="screenTitle">9 stopp · 9 quiz</h1>
+      </div>
+      <button id="resetBtn" class="iconBtn" aria-label="Nollställ rundan" title="Nollställ rundan">↺</button>
+    </header>
+
+    <section id="startScreen" class="screen">
+      <div class="heroCard">
+        <div class="heroEmoji">🗺️🍺📷</div>
+        <h2>Prague Challenge</h2>
+        <p>Följ rutten till fots, lös ett quiz vid varje stopp och ta en bild som minne.</p>
+        <div class="progressWrap">
+          <div class="progressLabel"><span>Framsteg</span><strong id="startProgress">0 / 9</strong></div>
+          <div class="progress"><span id="startProgressBar"></span></div>
+        </div>
+        <button id="startBtn" class="primary">Starta rundan</button>
+        <a class="secondaryLink" href="https://www.google.com/maps/dir/Hotel+Essence,+Senov%C3%A1%C5%BEn%C3%A9+n%C3%A1m.+870%2F27,+110+00+Nov%C3%A9+M%C4%9Bsto,+Tjeckien/St.+Nicholas+Church+(Mal%C3%A1+Strana),+Malostransk%C3%A9+n%C3%A1m.,+118+00+Mal%C3%A1+Strana,+Tjeckien/Astronomiska+uret+i+Prag,+Starom%C4%9Bstsk%C3%A9+n%C3%A1m.+1,+110+00+Josefov,+Tjeckien/Beer+Museum,+Husova+21,+110+00+Star%C3%A9+M%C4%9Bsto,+Tjeckien/Franz+Kafka+-+Rotating+Head+by+David+Cerny,+Charv%C3%A1tova,+110+00+Nov%C3%A9+M%C4%9Bsto,+Tjeckien/Caf%C3%A9+Louvre,+N%C3%A1rodn%C3%AD+22,+110+00+Nov%C3%A9+M%C4%9Bsto,+Tjeckien/Lennon+Wall,+Velkop%C5%99evorsk%C3%A9+n%C3%A1m.,+118+00+Mal%C3%A1+Strana,+Tjeckien/St.+Nicholas+Church+(Mal%C3%A1+Strana),+Malostransk%C3%A9+n%C3%A1m.,+118+00+Mal%C3%A1+Strana,+Tjeckien/Karlsbron,+Karl%C5%AFv+most,+110+00+Praha+1,+Tjeckien/Prague+Jewish+Quarter,+U+Star%C3%A9+%C5%A1koly,+110+00+Star%C3%A9+M%C4%9Bsto,+Tjeckien/@50.0866538,14.4055056,3226m/data=!3m1!1e3!4m62!4m61!1m5!1m1!1s0x470b952a13b3d8e7:0x24de874e4d4d019f!2m2!1d14.4290736!2d50.0854039!1m5!1m1!1s0x470b94e182d6c123:0x6ab2a62c0bf51fc!2m2!1d14.402785!2d50.0879606!1m5!1m1!1s0x470b94e939c02f49:0xf17b44b25aa20696!2m2!1d14.4179723!2d50.0870215!1m5!1m1!1s0x470b94eee1c7c7c7:0xc1a6c2d230875c80!2m2!1d14.4179723!2d50.086001!1m5!1m1!1s0x470b94edeefcfb49:0xd63ceecba4c5bb30!2m2!1d14.4208307!2d50.0816752!1m5!1m1!1s0x470b94ee10cc958f:0x79778a83cefad049!2m2!1d14.4186192!2d50.0820693!1m5!1m1!1s0x470b94e388b5f8dd:0x47fac776113df4ff!2m2!1d14.4067918!2d50.0862506!1m5!1m1!1s0x470b94e182d6c123:0x6ab2a62c0bf51fc!2m2!1d14.402785!2d50.0879606!1m5!1m1!1s0x470b94e5e58eb59f:0x75209738d1d3b126!2m2!1d14.4114366!2d50.0864771!1m5!1m1!1s0x470b94e9cbbce729:0x44008f074af9a449!2m2!1d14.4203456!2d50.0905184!3e2" target="_blank" rel="noopener">Öppna hela rutten i Google Maps ↗</a>
+      </div>
+      <p class="smallNote">Tips: lägg appen på hemskärmen via Safari → Dela → Lägg till på hemskärmen.</p>
+    </section>
+
+    <section id="stopScreen" class="screen hidden">
+      <div class="statusRow">
+        <span id="stopNumber">STOPP 1 AV 9</span>
+        <span id="stopDone">0 klara</span>
+      </div>
+      <div class="progress"><span id="progressBar"></span></div>
+
+      <article class="stopCard">
+        <div class="stopBadge" id="stopBadge">1</div>
+        <div class="stopTitleWrap">
+          <h2 id="stopTitle"></h2>
+          <p id="stopAddress"></p>
+        </div>
+      </article>
+
+      <div class="actions">
+        <a id="mapsBtn" class="mapBtn" target="_blank" rel="noopener">🗺️ Navigera med Google Maps</a>
+        <a id="appleMapsBtn" class="appleBtn" target="_blank" rel="noopener"> Apple Kartor</a>
+      </div>
+
+      <div id="quizCard" class="quizCard">
+        <div class="quizEyebrow">QUIZ</div>
+        <h3 id="question"></h3>
+        <div id="answers" class="answers"></div>
+        <div id="quizFeedback" class="feedback hidden"></div>
+      </div>
+
+      <div id="photoCard" class="photoCard hidden">
+        <div class="quizEyebrow">MINNESBILD</div>
+        <h3>Ta en bild på platsen 📷</h3>
+        <p>Bildens kopia sparas bara lokalt på din iPhone.</p>
+        <label class="photoButton">
+          📷 Ta bild
+          <input id="photoInput" type="file" accept="image/*" capture="environment">
+        </label>
+        <div id="photoPreviewWrap" class="photoPreviewWrap hidden">
+          <img id="photoPreview" alt="Din bild från destinationen">
+          <button id="removePhotoBtn" class="textBtn">Ta bort bilden</button>
+        </div>
+      </div>
+
+      <button id="nextBtn" class="primary hidden">Nästa stopp →</button>
+      <button id="homeBtn" class="secondary hidden">Till översikten</button>
+    </section>
+
+    <section id="finishScreen" class="screen hidden">
+      <div class="finishCard">
+        <div class="finishEmoji">🎉</div>
+        <h2>Prague Challenge klar!</h2>
+        <p>Ni har klarat alla 9 stopp.</p>
+        <div class="finishStats">
+          <div><strong id="finishScore">9 / 9</strong><span>quiz</span></div>
+          <div><strong id="finishPhotos">0 / 9</strong><span>bilder</span></div>
+        </div>
+        <button id="restartBtn" class="primary">Spela igen</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
